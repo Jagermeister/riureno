@@ -6,6 +6,7 @@ import { CalendarComponent } from './calendar.component';
 import { DayComponent } from './day.component';
 import { EventComponent } from './event.component';
 import { MaterialModule } from '../app.module';
+import { EventService } from './event.service';
 
 const calendarRoutes: Routes = [
     { path: '', component: CalendarComponent }
@@ -24,6 +25,7 @@ const calendarRoutes: Routes = [
     RouterModule.forChild(calendarRoutes)
   ],
   providers: [
+      EventService
   ]
 })
 export class CalendarModule { }
