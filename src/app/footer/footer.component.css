@@ -1,5 +1,13 @@
 #footer{
-    position: fixed;
-    bottom: 0px;
+    background: black;
+    text-align: center;
+    height: 65px;
     width: 100%;
+    line-height: 70px;
+    font-size: 0.8em;
+}
+
+mat-icon {
+    color: white;
+    margin: 0 10px;
 }

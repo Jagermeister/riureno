@@ -13,23 +13,32 @@ import { Time } from '@angular/common';
         [style.height]="widthEst+'%'"
         [style.opacity]="event.isFiltered ? 0.2 : 1"
         [ngClass]="event.type ? event.type : 'card'">
-    <div *ngIf="event.buyin">
+    <div *ngIf="event.buyin && !event.buyin.isCash && !event.buyin.isInvitational">
         <span *ngIf="!isBuyinExpanded" (mouseenter)="isBuyinExpanded=true" >$\{{event.buyin.total}}</span>
         <span *ngIf="isBuyinExpanded" (mouseleave)="isBuyinExpanded=false" >
             $\{{event.buyin.prize}} + $\{{event.buyin.total - event.buyin.prize}}
         </span>
         <span *ngIf="event.buyin && event.buyin.bounty">
-            <mat-icon style="transform: rotate(45deg);">fullscreen_exit</mat-icon>$\{{event.buyin.bounty}}
+            <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Bounty" style="transform: rotate(45deg);">fullscreen_exit</mat-icon>$\{{event.buyin.bounty}}
         </span>
         <span *ngIf="event.registrationLevelClose" style="float: right;">
-            <mat-icon>timelapse</mat-icon>{{lateRegFormat}}
+            <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Registration End Time">timelapse</mat-icon>{{lateRegFormat}}
         </span>
     </div>
+    <span *ngIf="event.buyin && event.buyin.isCash">
+        <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Cash Game">attach_money</mat-icon>
+    </span>
+    <span *ngIf="event.buyin && event.buyin.isInvitational">
+        <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Qualify/Invite Only">lock</mat-icon>
+    </span>
     {{event.name}}
-    <span *ngIf="event.gameType=='Mixed Game'"><mat-icon>casino</mat-icon></span>
+    <span *ngIf="event.gameType=='Mixed Game'">
+        <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Mixed Game">casino</mat-icon>
+    </span>
     </div>
     `,
     styles: [
+        '/deep/ .mat-tooltip-default { font-size: 18px; }',
         'mat-icon { vertical-align: middle; }',
         `div.card { 
             background: linear-gradient(135deg, #6200ee, rgba(45,44,51, 0) 66%);
@@ -66,7 +75,7 @@ export class EventComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.durationOffset = (this.event.time.hours - 10) * 50 + 55;
+        this.durationOffset = (this.event.time.hours - 10) * 45 + 55;
         if (this.event.duration) {
             const duration = this.event.duration;
             this.widthEst = ((duration.hours + duration.minutes/60) / 14) * 100;

@@ -1,5 +1,11 @@
-#content {
-    height: 100vh;
+#page {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+#page > * {
+    flex: 1;
     color: white;
     background: #2d2c33;
 }

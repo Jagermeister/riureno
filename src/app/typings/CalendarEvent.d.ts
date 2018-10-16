@@ -22,6 +22,7 @@ declare interface CalendarEvent {
         prize?: number,
         bounty?: number,
         isInvitational?: boolean,
+        isCash?: boolean
     };
     prizes?: string[];
     gameType?: string;

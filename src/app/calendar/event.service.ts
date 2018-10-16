@@ -170,10 +170,11 @@ export class EventService {
                             },
                             {
                                 key: 9,
-                                name: "Cash Game Hangout",
+                                name: "Hangout",
                                 type: "social",
                                 time: { hours: 20, minutes: 0 },
-                                duration: { hours: 4, minutes: 0 }
+                                duration: { hours: 4, minutes: 0 },
+                                buyin: { isCash: true },
                             }
                         ]
                     },
@@ -265,11 +266,12 @@ export class EventService {
                             },
                             {
                                 key: 14,
-                                name: "Taiwanese Cash Game Hangout",
+                                name: "Taiwanese Hangout",
                                 notes: ["rake free"],
                                 type: "social",
                                 time: { hours: 20, minutes: 0 },
                                 duration: { hours: 4, minutes: 0 },
+                                buyin: { isCash: true },
                                 gameType: "Taiwanese",
                             }
                         ]
@@ -336,6 +338,7 @@ export class EventService {
                                 ],
                                 time: { hours: 16, minutes: 30 },
                                 duration: { hours: 5, minutes: 0 },
+                                buyin: { isInvitational: true },
                                 prizes: [
                                     "$30k GTD"
                                 ],
@@ -391,6 +394,7 @@ export class EventService {
                                 ],
                                 time: { hours: 21, minutes: 0 },
                                 duration: { hours: 5, minutes: 0 },
+                                buyin: { isInvitational: true },
                                 prizes: [
                                     "$30k GTD"
                                 ],
@@ -479,10 +483,11 @@ export class EventService {
                             },
                             {
                                 key: 22,
-                                name: "Cash Game Hangout",
+                                name: "Hangout",
                                 type: "social",
                                 time: { hours: 20, minutes: 0 },
                                 duration: { hours: 4, minutes: 0 },
+                                buyin: { isCash: true },
                             },
                         ]
                     },
@@ -774,10 +779,11 @@ export class EventService {
                             },
                             {
                                 key: 39,
-                                name: "Cash Game Hangout",
+                                name: "Hangout",
                                 type: "social",
                                 time: { hours: 20, minutes: 0 },
                                 duration: { hours: 4, minutes: 0 },
+                                buyin: { isCash: true },
                             },
                         ]
                     },
@@ -895,12 +901,11 @@ export class EventService {
                                 ],
                                 time: { hours: 12, minutes: 0 },
                                 duration: { hours: 13, minutes: 20 },
-                                buyin: { total: 600, prize: 550 },
+                                buyin: { isInvitational: true },
                                 prizes: [
                                     "$200K GTD"
                                 ],
                                 gameType: "No Limit Hold'em",
-                                registrationLevelClose: 15,
                                 format: {
                                     levelMinutes: 40,
                                     levelPerBreak: 3,
@@ -961,10 +966,11 @@ export class EventService {
                             },
                             {
                                 key: 48,
-                                name: "Cash Game Hangout",
+                                name: "Hangout",
                                 type: "social",
                                 time: { hours: 20, minutes: 0 },
                                 duration: { hours: 4, minutes: 0 },
+                                buyin: { isCash: true },
                             },
                         ]
                     },

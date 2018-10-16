@@ -12,7 +12,8 @@ import {
   MatTabsModule,
   MatCardModule,
   MatIconModule,
-  MatChipsModule
+  MatChipsModule,
+  MatTooltipModule
 } from '@angular/material';
 const matModules = [
     MatButtonModule,
@@ -24,6 +25,7 @@ const matModules = [
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatTooltipModule,
     MatCardModule,
     MatGridListModule
 ];
@@ -37,6 +39,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -48,6 +51,7 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MaterialModule,
     AppRoutingModule
   ],

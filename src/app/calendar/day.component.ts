@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
     <div id="day">
         {{day.name | uppercase}}
         <div id="time" style="width: 25px; font-size: 14px;">
-            <div *ngFor="let hour of hours" style="height: 50px;">{{hour}}</div>
+            <div *ngFor="let hour of hours" style="height: 45px;">{{hour}}</div>
         </div>
         <div id="events" style="width: 100%;">
             <app-event *ngFor="let event of day.events"

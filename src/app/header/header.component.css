@@ -1,14 +1,11 @@
 #header {
-    padding: 5px;
     background: black;
-    position: fixed;
     height: 65px;
     width: 100%;
 }
 
 #logo {
-    position: fixed;
-    padding: 12px;
+    position: absolute;
 }
 
 nav {
@@ -29,4 +26,8 @@ a {
     color: white;
     padding: 1em 1.5em;
     text-decoration: none;
+}
+
+.mat-icon {
+    vertical-align: middle;
 }
