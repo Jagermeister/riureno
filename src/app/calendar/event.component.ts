@@ -9,6 +9,7 @@ import { Time } from '@angular/common';
         [style.marginLeft.px]="30 + offset*10"
         [style.top.px]="durationOffset"
         [style.height]="widthEst+'%'"
+        [style.opacity]="event.isFiltered ? 0.2 : 1"
         [ngClass]="event.type ? event.type : 'card'">
     <div *ngIf="event.buyin">
         $<span>{{event.buyin.total}}</span>
@@ -50,7 +51,7 @@ export class EventComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        this.durationOffset = (this.event.time.hours - 10) * 50;
+        this.durationOffset = (this.event.time.hours - 10) * 50 + 55;
         if (this.event.duration) {
             const duration = this.event.duration;
             this.widthEst = ((duration.hours + duration.minutes/60) / 14) * 100;

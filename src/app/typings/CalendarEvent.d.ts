@@ -1,5 +1,6 @@
 declare interface CalendarEvent {
     key: number;
+    isFiltered?: boolean;
     dayTrack?: number;
     identifer?: string;    
     name: string;

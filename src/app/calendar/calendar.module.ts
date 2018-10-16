@@ -7,6 +7,7 @@ import { DayComponent } from './day.component';
 import { EventComponent } from './event.component';
 import { MaterialModule } from '../app.module';
 import { EventService } from './event.service';
+import { FilterComponent } from './filtering/filter.component';
 
 const calendarRoutes: Routes = [
     { path: '', component: CalendarComponent }
@@ -16,7 +17,8 @@ const calendarRoutes: Routes = [
   declarations: [
       CalendarComponent,
       DayComponent,
-      EventComponent
+      EventComponent,
+      FilterComponent
   ],
   imports: [
     CommonModule,

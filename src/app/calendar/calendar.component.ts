@@ -16,4 +16,11 @@ export class CalendarComponent implements OnInit {
             .subscribe(days => this.days = days);
     }
 
+    onName(name: string) {
+        const lowerName = name.toLowerCase();
+        this.days.map(d => 
+            d.events.map(e =>
+                e.isFiltered = e.name.toLowerCase().indexOf(lowerName) === -1
+        ));
+    }
 }

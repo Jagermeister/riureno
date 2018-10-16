@@ -1,4 +1,6 @@
-hey calendar:<br/>
+<app-filter
+    (name)="onName($event)"></app-filter>
+<br/>
 <div style="width: 100%;">
   <app-day *ngFor="let day of days" [day]="day"></app-day>
 </div>
