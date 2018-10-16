@@ -17,19 +17,25 @@ declare interface CalendarEvent {
         minutes: number
     };
     buyin?: {
-        total: number;
-        rebuy?: number;
-        prize: number;
+        total: number,
+        rebuy?: number,
+        prize: number,
+        bounty?: number,
+        isInvitational?: boolean,
     };
     prizes?: string[];
     gameType?: string;
     registrationLevelClose?: number;
     format?: {
-        levelMinutes: number,
+        levelMinutes?: number,
         levelPerBreak?: number,
         breakMinutes?: number,
         breaks?: {
             level: number,
+            minutes: number
+        }[],
+        levels?: {
+            levels: number,
             minutes: number
         }[]
     };
