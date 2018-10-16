@@ -3,11 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     {
-        path: 'home',
+        path: '',
         loadChildren: '../app/calendar/calendar.module#CalendarModule'
     },
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', redirectTo: '/home', pathMatch: 'full' }
+    { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
