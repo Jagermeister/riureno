@@ -17,9 +17,9 @@ declare interface CalendarEvent {
         minutes: number
     };
     buyin?: {
-        total: number,
+        total?: number,
         rebuy?: number,
-        prize: number,
+        prize?: number,
         bounty?: number,
         isInvitational?: boolean,
     };

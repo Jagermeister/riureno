@@ -5,19 +5,24 @@ import { Component, OnInit, Input } from '@angular/core';
     template: `
     <div id="day">
         {{day.name | uppercase}}
-        <div style="width: 25px; font-size: 14px;">
+        <div id="time" style="width: 25px; font-size: 14px;">
             <div *ngFor="let hour of hours" style="height: 50px;">{{hour}}</div>
         </div>
-        <div style="width: 100%;">
+        <div id="events" style="width: 100%;">
             <app-event *ngFor="let event of day.events"
                 [event]="event"></app-event>
         </div>
     </div>`,
     styles: [
-        'app-event.horizontal { display: inline-block; }',
-        '#day.horizontal { height: 100px; }',
-        'app-event { display: block; }',
-        '#day { width: 300px; display: inline-block; }'
+        '#day { width: 300px; flex: 1 1 auto; display: flex; }',
+        '#time { flex: none; height: auto; }',
+        `#events {
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            height: auto;
+            width: 100%;
+        }`
     ]
 })
 export class DayComponent implements OnInit {

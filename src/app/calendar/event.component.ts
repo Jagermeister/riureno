@@ -1,24 +1,36 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Time } from '@angular/common';
 
+//[style.width.px]="250 - offset*10"
+//[style.marginLeft.px]="30 + offset*10"
+
 @Component({
     selector: 'app-event',
     template: `
-    <div style="position: fixed;"
-        [style.width.px]="250 - offset*10"
-        [style.marginLeft.px]="30 + offset*10"
+    <div style="position: absolute; left: 0%; width: 100%;"
         [style.top.px]="durationOffset"
+        [style.marginLeft.px]="30 + offset*10"
         [style.height]="widthEst+'%'"
         [style.opacity]="event.isFiltered ? 0.2 : 1"
         [ngClass]="event.type ? event.type : 'card'">
     <div *ngIf="event.buyin">
-        $<span>{{event.buyin.total}}</span>
-        <span style="float: right;">{{lateRegFormat}}</span>
+        <span *ngIf="!isBuyinExpanded" (mouseenter)="isBuyinExpanded=true" >$\{{event.buyin.total}}</span>
+        <span *ngIf="isBuyinExpanded" (mouseleave)="isBuyinExpanded=false" >
+            $\{{event.buyin.prize}} + $\{{event.buyin.total - event.buyin.prize}}
+        </span>
+        <span *ngIf="event.buyin && event.buyin.bounty">
+            <mat-icon style="transform: rotate(45deg);">fullscreen_exit</mat-icon>$\{{event.buyin.bounty}}
+        </span>
+        <span *ngIf="event.registrationLevelClose" style="float: right;">
+            <mat-icon>timelapse</mat-icon>{{lateRegFormat}}
+        </span>
     </div>
     {{event.name}}
+    <span *ngIf="event.gameType=='Mixed Game'"><mat-icon>casino</mat-icon></span>
     </div>
     `,
     styles: [
+        'mat-icon { vertical-align: middle; }',
         `div.card { 
             background: linear-gradient(135deg, #6200ee, rgba(45,44,51, 0) 66%);
             border-radius: 4px;
@@ -47,8 +59,11 @@ export class EventComponent implements OnInit {
     @Input() event: CalendarEvent;
     durationOffset: number;
     widthEst: number;
+    isBuyinExpanded: boolean;
 
-    constructor() { }
+    constructor() {
+        this.isBuyinExpanded = false;
+    }
 
     ngOnInit() {
         this.durationOffset = (this.event.time.hours - 10) * 50 + 55;
@@ -82,7 +97,7 @@ export class EventComponent implements OnInit {
         {
             return "";   
         } else {
-            return `LateReg: ${lateReg.hours}:${lateReg.minutes < 10 ? '0': ''}${lateReg.minutes}`;
+            return `${lateReg.hours}:${lateReg.minutes < 10 ? '0': ''}${lateReg.minutes}`;
         }
     }
 

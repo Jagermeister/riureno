@@ -5,9 +5,9 @@ import { isNumber } from "util";
     selector: 'app-filter',
     template: `
       <h4>Filters</h4>
-      Name: <input #name (keyup)="onNameKeyUp(name.value)">
+      Name: <input #name (keyup)="onNameKeyUp(name.value)"><!--
       ValueMin: <input #valuemin (keyup)="onValueMinKeyUp(valuemin.value)">
-      ValueMax: <input #valuemax (keyup)="onValueMaxKeyUp(valuemax.value)">
+      ValueMax: <input #valuemax (keyup)="onValueMaxKeyUp(valuemax.value)">-->
     `
 })
 export class FilterComponent {

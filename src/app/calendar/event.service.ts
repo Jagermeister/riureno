@@ -663,7 +663,7 @@ export class EventService {
                                 name: "KARAOKE PARTY @ EDGE",
                                 type: "social",
                                 time: { hours: 22, minutes: 0 },
-                                duration: { hours: 0, minutes: 0 },
+                                duration: { hours: 4, minutes: 0 },
                             },
                         ]
                     },
