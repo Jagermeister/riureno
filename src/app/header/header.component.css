@@ -1,6 +1,7 @@
 #header {
     background: black;
     height: 65px;
+    font-size: 18px;
     width: 100%;
 }
 
@@ -9,13 +10,14 @@
 }
 
 nav {
-    font-size: 18px;
     display: inline-block;
     width: 100%;
 }
 
 nav > ul {
     text-align: center;
+    font-size: 0.5em;
+    transition: .2s font-size ease-in;
 }
 
 nav > ul > li {
@@ -24,8 +26,18 @@ nav > ul > li {
 
 a {
     color: white;
-    padding: 1em 1.5em;
+    padding: 1em 0.75em;
     text-decoration: none;
+}
+
+
+@media screen and (min-width: 43.75em){
+    a { padding: 1em 1em; }
+    nav > ul { font-size: 1em; }
+}
+@media screen and (min-width: 60em){
+    a { padding: 1em 1.5em; }
+    nav > ul { font-size: 1.25em; }
 }
 
 .mat-icon {
