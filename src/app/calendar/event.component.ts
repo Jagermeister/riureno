@@ -3,15 +3,17 @@ import { Time } from '@angular/common';
 
 //[style.width.px]="250 - offset*10"
 //[style.marginLeft.px]="30 + offset*10"
+/*
+            'width': '-moz-calc(100% - ' + ((event.dayTrack?event.dayTrack:0)*10 + 5) + 'px)',
+            'width': '-webkit-calc(100% - ' + ((event.dayTrack?event.dayTrack:0)*10 + 5) + 'px)',
+            'width': '-o-calc(100% - ' + ((event.dayTrack?event.dayTrack:0)*10 + 5) + 'px)',
+            */
 
 @Component({
     selector: 'app-event',
     template: `
     <div id="event"
         [ngStyle]="{
-            'width': '-moz-calc(100% - ' + ((event.dayTrack?event.dayTrack:0)*10 + 5) + 'px)',
-            'width': '-webkit-calc(100% - ' + ((event.dayTrack?event.dayTrack:0)*10 + 5) + 'px)',
-            'width': '-o-calc(100% - ' + ((event.dayTrack?event.dayTrack:0)*10 + 5) + 'px)',
             'width': 'calc(100% - ' + ((event.dayTrack?event.dayTrack:0)*10 + 5) + 'px)'
         }"
         [style.top.px]="durationOffset"
