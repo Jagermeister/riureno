@@ -3,17 +3,21 @@ import { EventService } from './event.service';
 
 @Component({
   selector: 'app-calendar',
-  templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css']
+  templateUrl: './calendar.component.html'
 })
 export class CalendarComponent implements OnInit {
     days: CalendarDay[];
+    dayOffset: number;
 
-    constructor(private eventService: EventService) { }
+    constructor(private eventService: EventService) {
+        this.dayOffset = 0;
+    }
 
     ngOnInit() {
         this.eventService.fetchEvents()
             .subscribe(days => this.days = days);
+        this.onNext = this.onNext.bind(this);
+        this.onPrev = this.onPrev.bind(this);
     }
 
     onName(name: string) {
@@ -22,5 +26,13 @@ export class CalendarComponent implements OnInit {
             d.events.map(e =>
                 e.isFiltered = e.name.toLowerCase().indexOf(lowerName) === -1
         ));
+    }
+
+    onNext(): void {
+        this.dayOffset++;
+    }
+
+    onPrev(): void {
+        this.dayOffset--;
     }
 }

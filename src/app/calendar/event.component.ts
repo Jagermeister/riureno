@@ -7,15 +7,20 @@ import { Time } from '@angular/common';
 @Component({
     selector: 'app-event',
     template: `
-    <div style="position: absolute; left: 0%; width: 100%;"
+    <div id="event"
+        [ngStyle]="{
+            'width': '-moz-calc(100% - ' + ((event.dayTrack?event.dayTrack:0)*10 + 5) + 'px)',
+            'width': '-webkit-calc(100% - ' + ((event.dayTrack?event.dayTrack:0)*10 + 5) + 'px)',
+            'width': '-o-calc(100% - ' + ((event.dayTrack?event.dayTrack:0)*10 + 5) + 'px)',
+            'width': 'calc(100% - ' + ((event.dayTrack?event.dayTrack:0)*10 + 5) + 'px)'
+        }"
         [style.top.px]="durationOffset"
-        [style.marginLeft.px]="30 + offset*10"
+        [style.marginLeft.px]="offset*10"
         [style.height]="widthEst+'%'"
         [style.opacity]="event.isFiltered ? 0.2 : 1"
         [ngClass]="event.type ? event.type : 'card'">
     <div *ngIf="event.buyin && !event.buyin.isCash && !event.buyin.isInvitational">
-        <span *ngIf="!isBuyinExpanded" (mouseenter)="isBuyinExpanded=true" >$\{{event.buyin.total}}</span>
-        <span *ngIf="isBuyinExpanded" (mouseleave)="isBuyinExpanded=false" >
+        <span>
             $\{{event.buyin.prize}} + $\{{event.buyin.total - event.buyin.prize}}
         </span>
         <span *ngIf="event.buyin && event.buyin.bounty">
@@ -38,29 +43,28 @@ import { Time } from '@angular/common';
     </div>
     `,
     styles: [
+        `#event {
+            position: absolute;
+        }`,
         '/deep/ .mat-tooltip-default { font-size: 18px; }',
         'mat-icon { vertical-align: middle; }',
         `div.card { 
             background: linear-gradient(135deg, #6200ee, rgba(45,44,51, 0) 66%);
             border-radius: 4px;
-            padding: 4px;
         }`,
         `div.social { 
             background: linear-gradient(135deg, green, rgba(45,44,51, 0) 66%);
             border-radius: 4px;
-            padding: 4px;
         }`,
         `div.charity { 
             background: linear-gradient(135deg, gold, rgba(45,44,51, 0) 66%);
             border-radius: 4px;
-            padding: 4px;
             color: black;
         }`,
         `div.MainEvent { 
             background: linear-gradient(135deg, #3F51B5, rgba(45,44,51, 0) 66%),
                         linear-gradient(200deg, #2196F3, rgba(45,44,51, 0) 35%);
             border-radius: 4px;
-            padding: 4px;
         }`,
     ]
 })
@@ -68,14 +72,12 @@ export class EventComponent implements OnInit {
     @Input() event: CalendarEvent;
     durationOffset: number;
     widthEst: number;
-    isBuyinExpanded: boolean;
 
     constructor() {
-        this.isBuyinExpanded = false;
     }
 
     ngOnInit() {
-        this.durationOffset = (this.event.time.hours - 10) * 45 + 55;
+        this.durationOffset = (this.event.time.hours - 10) * 45;
         if (this.event.duration) {
             const duration = this.event.duration;
             this.widthEst = ((duration.hours + duration.minutes/60) / 14) * 100;

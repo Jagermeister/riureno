@@ -1,6 +1,4 @@
-
 <div style="
-    flex: 1 1 auto;
     overflow: hidden;
     position: relative;
     height: 100%;
@@ -11,24 +9,41 @@
     right: 0;
     bottom: 0;	
     left: 0;
+    overflow-x: hidden;
 ">
     <!--app-filter (name)="onName($event)"></app-filter-->
-    <br/>
-<div style="
-    overflow-x: auto;
+<div [style.right]="dayOffset * 100 + '%'" style="
+    /*transform: translate(-300px, 0px);*/
+    /*grid-template-rows: auto;
+    -webkit-flex-direction: row;
+    flex-direction: row;*/
+    /*flex-flow: row wrap;*/
+
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-shrink: 0;
+    transition: all 0.4s ease;
+
+    /*
+    height: 100%;
+    flex-shrink: 0;
     display: -webkit-box;
     display: -moz-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex;
-    /*flex-flow: row wrap;*/
-    grid-template-rows: auto;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    position: relative;
-    height: 100%;
+    display: flex;*/
 ">
-    <app-day *ngFor="let day of days" [day]="day"></app-day>
+    <style>
+        app-day {
+            width: 100%;
+            flex-shrink: 0;
+        }
+    </style>
+    <app-day *ngFor="let day of days"
+        [day]="day"
+        [next]="onNext"
+        [prev]="onPrev"></app-day>
 </div>
 </div>
 </div>

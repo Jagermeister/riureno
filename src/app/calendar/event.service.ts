@@ -11,6 +11,7 @@ export class EventService {
                 [
                     {
                         name: 'Friday',
+                        isFirst: true,
                         date: new Date(2018, 10, 19),
                         events: [
                             {
@@ -694,7 +695,7 @@ export class EventService {
                                 ],
                                 time: { hours: 12, minutes: 0 },
                                 duration: { hours: 9, minutes: 20 },
-                                buyin: { total: 600, prize: 5500 },
+                                buyin: { total: 600, prize: 550 },
                                 prizes: [
                                     "$200K GTD"
                                 ],
@@ -809,7 +810,7 @@ export class EventService {
                                 ],
                                 time: { hours: 12, minutes: 0 },
                                 duration: { hours: 9, minutes: 20 },
-                                buyin: { total: 600, prize: 5500 },
+                                buyin: { total: 600, prize: 550 },
                                 prizes: [
                                     "$200K GTD"
                                 ],
@@ -976,6 +977,7 @@ export class EventService {
                     },
                     {
                         name: 'Monday',
+                        isLast: true,
                         date: new Date(2018, 10, 29),
                         events: [
                             {
