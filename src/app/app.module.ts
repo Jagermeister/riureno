@@ -40,22 +40,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DisclosureComponent } from './information/disclosure.component';
+import { EducationComponent } from './information/education.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MaterialModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        DisclosureComponent,
+        EducationComponent,
+        HeaderComponent,
+        FooterComponent
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MaterialModule,
+        AppRoutingModule
+    ],
+    providers: [],
+    entryComponents: [
+        DisclosureComponent,
+        EducationComponent
+    ],
+     bootstrap: [AppComponent]
 })
 export class AppModule { }

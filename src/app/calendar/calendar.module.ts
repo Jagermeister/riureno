@@ -2,12 +2,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MaterialModule } from '../app.module';
+
 import { CalendarComponent } from './calendar.component';
 import { DayComponent } from './day.component';
 import { EventComponent } from './event.component';
-import { MaterialModule } from '../app.module';
-import { EventService } from './event.service';
 import { FilterComponent } from './filtering/filter.component';
+import { EventDetailComponent } from './eventdetail.component';
+
+import { EventService } from './event.service';
 
 const calendarRoutes: Routes = [
     { path: '', component: CalendarComponent }
@@ -18,6 +21,7 @@ const calendarRoutes: Routes = [
       CalendarComponent,
       DayComponent,
       EventComponent,
+      EventDetailComponent,
       FilterComponent
   ],
   imports: [
@@ -28,6 +32,7 @@ const calendarRoutes: Routes = [
   ],
   providers: [
       EventService
-  ]
+  ],
+  entryComponents: [ EventDetailComponent ]
 })
 export class CalendarModule { }

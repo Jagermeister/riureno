@@ -2,8 +2,21 @@ declare interface CalendarEvent {
     key: number;
     isFiltered?: boolean;
     dayTrack?: number;
-    identifer?: string;    
+    identifier?: string;    
     name: string;
+    isLiveCoverage?: boolean;
+    satellite?: {
+        identifier: string;
+        name: string;
+        buyin?: {
+            total?: number,
+            rebuy?: number,
+            prize?: number,
+            bounty?: number,
+            isInvitational?: boolean,
+            isCash?: boolean
+        };
+    };
     subtitle?: string;
     speed?: string;
     notes?: string[];
@@ -25,6 +38,9 @@ declare interface CalendarEvent {
         isCash?: boolean
     };
     prizes?: string[];
+    gtd?: {
+        prize?: number
+    },
     gameType?: string;
     registrationLevelClose?: number;
     format?: {

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Time } from '@angular/common';
+import { MatDialogRef, MatDialog } from '@angular/material';
+import { EventDetailComponent } from './eventdetail.component';
 
 //[style.width.px]="250 - offset*10"
 //[style.marginLeft.px]="30 + offset*10"
@@ -13,6 +15,7 @@ import { Time } from '@angular/common';
     selector: 'app-event',
     template: `
     <div id="event"
+        (click)="showDetail()"
         [ngStyle]="{
             'width': 'calc(100% - ' + ((event.dayTrack?event.dayTrack:0)*10 + 5) + 'px)'
         }"
@@ -21,32 +24,41 @@ import { Time } from '@angular/common';
         [style.height]="widthEst+'%'"
         [style.opacity]="event.isFiltered ? 0.2 : 1"
         [ngClass]="event.type ? event.type : 'card'">
-    <div *ngIf="event.buyin && !event.buyin.isCash && !event.buyin.isInvitational">
-        <span>
-            $\{{event.buyin.prize}} + $\{{event.buyin.total - event.buyin.prize}}
+        <div style="text-align: center; height: 1.4em;"
+            *ngIf="event.buyin && !event.buyin.isCash && !event.buyin.isInvitational">
+            <span style="float: left;">
+                {{buyinFormat}}
+            </span>
+            <span style="float: left;" *ngIf="event.buyin && event.buyin.bounty">
+                <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Bounty" style="transform: rotate(45deg);">fullscreen_exit</mat-icon>$\{{event.buyin.bounty}}
+            </span>
+            <span id="gtd" *ngIf="event.gtd">
+                [\${{event.gtd.prize}}k GTD]
+            </span>
+            <span *ngIf="event.registrationLevelClose && event.format.levelMinutes" style="float: right;">
+                <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Registration End Time">timelapse</mat-icon>{{lateRegFormat}}
+            </span>
+        </div>
+        <span *ngIf="event.buyin && event.buyin.isCash">
+            <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Cash Game">attach_money</mat-icon>
         </span>
-        <span *ngIf="event.buyin && event.buyin.bounty">
-            <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Bounty" style="transform: rotate(45deg);">fullscreen_exit</mat-icon>$\{{event.buyin.bounty}}
+        <span *ngIf="event.isLiveCoverage" style="padding-right: 6px;">
+            <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Live Stream" svgIcon="twitch"></mat-icon>
         </span>
-        <span *ngIf="event.registrationLevelClose" style="float: right;">
-            <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Registration End Time">timelapse</mat-icon>{{lateRegFormat}}
+        <span *ngIf="event.identifier">#{{event.identifier}}&nbsp;</span>
+        {{event.name}}
+        <span style="float: right;" *ngIf="event.buyin && event.buyin.isInvitational">
+            <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Qualify/Invite Only">lock</mat-icon>
         </span>
-    </div>
-    <span *ngIf="event.buyin && event.buyin.isCash">
-        <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Cash Game">attach_money</mat-icon>
-    </span>
-    <span *ngIf="event.buyin && event.buyin.isInvitational">
-        <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Qualify/Invite Only">lock</mat-icon>
-    </span>
-    {{event.name}}
-    <span *ngIf="event.gameType=='Mixed Game'">
-        <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Mixed Game">casino</mat-icon>
-    </span>
+        <span *ngIf="event.gameType=='Mixed Game'">
+            <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Mixed Game">casino</mat-icon>
+        </span>
     </div>
     `,
     styles: [
         `#event {
             position: absolute;
+            cursor: pointer;
         }`,
         '/deep/ .mat-tooltip-default { font-size: 18px; }',
         'mat-icon { vertical-align: middle; }',
@@ -68,6 +80,11 @@ import { Time } from '@angular/common';
                         linear-gradient(200deg, #2196F3, rgba(45,44,51, 0) 35%);
             border-radius: 4px;
         }`,
+        `#gtd {
+            font-size: 1.1em;
+            color: #00f742;
+            padding: 0 10px;
+        }`,
     ]
 })
 export class EventComponent implements OnInit {
@@ -75,7 +92,7 @@ export class EventComponent implements OnInit {
     durationOffset: number;
     widthEst: number;
 
-    constructor() {
+    constructor(private dialog: MatDialog) {
     }
 
     ngOnInit() {
@@ -84,6 +101,13 @@ export class EventComponent implements OnInit {
             const duration = this.event.duration;
             this.widthEst = ((duration.hours + duration.minutes/60) / 14) * 100;
         }
+    }
+
+    showDetail() {        
+        const dialogRef = this.dialog.open(EventDetailComponent, {
+            /*width: '250px',*/
+            data: { event: this.event }
+        });
     }
 
     get buyinFormat(): string {
@@ -118,7 +142,7 @@ export class EventComponent implements OnInit {
         var lastRegistrationTime = Object.assign({}, this.event.time),
             regLevelClose = this.event.registrationLevelClose - 1;
 
-        if (regLevelClose) {
+        if (regLevelClose && this.event.format.levelMinutes) {
             var breakMinutes: number = this.event.format.levelPerBreak
                 ? Math.floor(regLevelClose / this.event.format.levelPerBreak) * this.event.format.breakMinutes
                 : 0,

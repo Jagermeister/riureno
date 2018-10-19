@@ -7,6 +7,10 @@
     font-size: 0.8em;
 }
 
+a {
+    color: white;
+}
+
 mat-icon {
     color: white;
     margin: 0 10px;

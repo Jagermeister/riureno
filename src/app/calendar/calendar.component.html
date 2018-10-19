@@ -12,7 +12,7 @@
     overflow-x: hidden;
 ">
     <!--app-filter (name)="onName($event)"></app-filter-->
-<div [style.right]="dayOffset * 100 + '%'" style="
+<div id="daycontainer" [style.right]="dayOffset * 100 + '%'" style="
     /*transform: translate(-300px, 0px);*/
     /*grid-template-rows: auto;
     -webkit-flex-direction: row;
@@ -38,6 +38,21 @@
         app-day {
             width: 100%;
             flex-shrink: 0;
+        }
+
+        #daycontainer {
+            max-width: 100%;
+        }
+
+        @media screen and (min-width: 640px) {
+            #daycontainer {
+                max-width: 50%;
+            }
+        }
+        @media screen and (min-width: 960px) {
+            #daycontainer {
+                max-width: 33.33%;
+            }
         }
     </style>
     <app-day *ngFor="let day of days"

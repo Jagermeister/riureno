@@ -29,5 +29,9 @@ export class AppComponent {
             'discord',
             this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/icons/discord.svg')
         );
+        this.matIconRegistry.addSvgIcon(
+            'satellite',
+            this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/icons/satellite.svg')
+        );
     }
 }
