@@ -34,5 +34,8 @@ export class CalendarComponent implements OnInit {
 
     onPrev(): void {
         this.dayOffset--;
+        if (this.dayOffset < 0) {
+            this.dayOffset = 0;
+        }
     }
 }

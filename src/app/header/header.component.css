@@ -51,9 +51,6 @@ span {
         display: inherit;
         opacity: 1;
     }
-    #logo {
-        height: 100%;
-    }
     
 }
 @media screen and (min-width: 60em){
