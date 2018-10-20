@@ -88,12 +88,18 @@ export class EventService {
                                 name: "Charity Event",
                                 notes: [
                                     "11th Annual “All in for Childhood Cancer”",
-                                    "Doors & Registration open at 6:00 including cocktail and hor d’oeurves",
+                                    "Starting Chips: 2,000",
+                                    "Registration and re-entries through the first four (4) levels",
+
+                                    /*"Doors & Registration open at 6:00 including cocktail and hor d’oeurves",
                                     "?? 2 drink tickets, 1 food ticket with entry ??",
                                     "At 7:00/7:15 poker starts in the Capri room in the Peppermill",
-                                    "Dress to impress – Cocktail attire",
+                                    "Dress to impress – Cocktail attire",*/
                                     /*"https://www.nvchildrenscancer.org/d4events/all-in-for-childhood-cancer-poker-tournament/"*/
                                 ],
+                                format: {
+                                    levelMinutes: 15,
+                                },
                                 prizes: [
                                     "1 raffle ticket for each $25+ RIU store purchase during event",
                                     "5 seats to Event #32 - Platinum Pass Invite."
@@ -112,7 +118,7 @@ export class EventService {
                         events: [
                             {
                                 key: 54,
-                                name: "SNG Mini Main Event (Day 1) Satellite",
+                                name: "SNG Mini Main Event Satellite",
                                 satellite: {
                                     identifier: "3",
                                     name: "Mini Main Event Day 1",
@@ -130,7 +136,8 @@ export class EventService {
                             {
                                 key: 5,
                                 identifier: "3",
-                                name: "Mini Main Event Day 1",
+                                name: "Mini Main Event",
+                                subtitle: "Day 1",
                                 notes: [
                                     "Starting Chips: 20,000",
                                     "Registration and re-entries close at the start of level 12",
@@ -181,9 +188,6 @@ export class EventService {
                                     "1 Winner per $600 prize pool",
                                     "Winners receive Main Event entry"
                                 ],
-                                gtd: {
-                                    prize: 200
-                                },
                                 gameType: "No Limit Hold'em",
                                 registrationLevelClose: 7,
                                 format: {
@@ -225,6 +229,11 @@ export class EventService {
                                 time: { hours: 19, minutes: 0 },
                                 duration: { hours: 5, minutes: 0 },
                                 buyin: { total: 165, prize: 140 },
+                                satellite: {
+                                    identifier: "20",
+                                    name: "Thursday Thrilla",
+                                    buyin: { total: 1100, prize: 500, bounty: 500 },
+                                },
                                 notes: [
                                     "Starting Chips: 8,000",
                                     "Registration and re-entries through first six (6) levels",
@@ -235,9 +244,6 @@ export class EventService {
                                     "1 Winner per $1,100 prize pool",
                                     "Winners receive Thursday Thrilla entry"
                                 ],
-                                gtd: {
-                                    prize: 200
-                                },
                                 gameType: "No Limit Hold'em",
                                 registrationLevelClose: 7,
                                 format: {
@@ -269,6 +275,11 @@ export class EventService {
                                 time: { hours: 10, minutes: 0 },
                                 duration: { hours: 1, minutes: 30 },
                                 buyin: { total: 90, prize: 80 },
+                                satellite: {
+                                    identifier: "7",
+                                    name: "Black Chip Bounty",
+                                    buyin: { total: 235, prize: 100, bounty: 100 },
+                                },
                                 prizes: [
                                     "Winners receive NLH Black Chip Bounty entry",
                                     "Event #7",
@@ -311,19 +322,20 @@ export class EventService {
                                 time: { hours: 14, minutes: 0 },
                                 duration: { hours: 6, minutes: 0 },
                                 buyin: { total: 125, prize: 100 },
+                                satellite: {
+                                    identifier: "23",
+                                    name: "Main Event Day 1",
+                                    buyin: { total: 600, prize: 550 },
+                                },
                                 notes: [
                                     "Starting Chips: 8,000",
                                     "Registration and re-entries through first six (6) levels",
                                     "10 min break at the completion of every eight (8) levels"
                                 ],
                                 prizes: [
-                                    "$200k GTD",
                                     "1 Winner per $600 prize pool",
                                     "Winners receive Main Event entry"
                                 ],
-                                gtd: {
-                                    prize: 200
-                                },
                                 gameType: "No Limit Hold'em",
                                 registrationLevelClose: 7,
                                 format: {
@@ -421,7 +433,8 @@ export class EventService {
                             {
                                 key: 15,
                                 identifier: "10",
-                                name: "6 Max Shootout Round 1",
+                                name: "6 Max Shootout",
+                                subtitle: "Round 1",
                                 isLiveCoverage: true,
                                 time: { hours: 12, minutes: 0 },
                                 duration: { hours: 5, minutes: 0 },
@@ -457,6 +470,11 @@ export class EventService {
                                 time: { hours: 14, minutes: 0 },
                                 duration: { hours: 6, minutes: 0 },
                                 buyin: { total: 125, prize: 100 },
+                                satellite: {
+                                    identifier: "23",
+                                    name: "Main Event Day 1",
+                                    buyin: { total: 600, prize: 550 },
+                                },
                                 notes: [
                                     "Starting Chips: 8,000",
                                     "Registration and re-entries through first six (6) levels",
@@ -466,9 +484,6 @@ export class EventService {
                                     "1 Winner per $600 prize pool",
                                     "Winners receive Main Event entry"
                                 ],
-                                gtd: {
-                                    prize: 200
-                                },
                                 gameType: "No Limit Hold'em",
                                 registrationLevelClose: 7,
                                 format: {
@@ -480,7 +495,8 @@ export class EventService {
                             {
                                 key: 52,
                                 identifier: "10",
-                                name: "6 Max Shootout Round 2",
+                                name: "6 Max Shootout",
+                                subtitle: "Round 2",
                                 notes: [
                                     "216 Player Maximum",
                                     "Win your table to advance"
@@ -544,7 +560,8 @@ export class EventService {
                             {
                                 key: 53,
                                 identifier: "10",
-                                name: "6 Max Shootout Round 3",
+                                name: "6 Max Shootout",
+                                subtitle: "Round 3",
                                 notes: [
                                     "216 Player Maximum",
                                     "Win your table to advance"
@@ -633,6 +650,11 @@ export class EventService {
                                 time: { hours: 19, minutes: 0 },
                                 duration: { hours: 5, minutes: 0 },
                                 buyin: { total: 165, prize: 140 },
+                                satellite: {
+                                    identifier: "20",
+                                    name: "Thursday Thrilla",
+                                    buyin: { total: 1100, prize: 500, bounty: 500 },
+                                },
                                 notes: [
                                     "Starting Chips: 8,000",
                                     "Registration and re-entries through first six (6) levels",
@@ -643,9 +665,6 @@ export class EventService {
                                     "1 Winner per $1,100 prize pool",
                                     "Winners receive Thursday Thrilla entry"
                                 ],
-                                gtd: {
-                                    prize: 200
-                                },
                                 gameType: "No Limit Hold'em",
                                 registrationLevelClose: 7,
                                 format: {
@@ -726,6 +745,11 @@ export class EventService {
                                 time: { hours: 14, minutes: 0 },
                                 duration: { hours: 6, minutes: 0 },
                                 buyin: { total: 125, prize: 100 },
+                                satellite: {
+                                    identifier: "23",
+                                    name: "Main Event Day 1",
+                                    buyin: { total: 600, prize: 550 },
+                                },
                                 notes: [
                                     "Starting Chips: 8,000",
                                     "Registration and re-entries through first six (6) levels",
@@ -735,9 +759,6 @@ export class EventService {
                                     "1 Winner per $600 prize pool",
                                     "Winners receive Main Event entry"
                                 ],
-                                gtd: {
-                                    prize: 200
-                                },
                                 gameType: "No Limit Hold'em",
                                 registrationLevelClose: 7,
                                 format: {
@@ -778,6 +799,11 @@ export class EventService {
                                 time: { hours: 19, minutes: 30 },
                                 duration: { hours: 6, minutes: 15 },
                                 buyin: { total: 165, prize: 140 },
+                                satellite: {
+                                    identifier: "20",
+                                    name: "Thursday Thrilla",
+                                    buyin: { total: 1100, prize: 500, bounty: 500 },
+                                },
                                 notes: [
                                     "Starting Chips: 8,000",
                                     "Registration and re-entries through first six (6) levels",
@@ -796,7 +822,7 @@ export class EventService {
                             },
                             {
                                 key: 27,
-                                name: "RHAP Live Survivor Viewing Party",
+                                name: "Live Survivor Viewing Party",
                                 type: "social",
                                 notes: [
                                     "Rob Cesternino is a former two-time Survivor contestant",
@@ -886,6 +912,11 @@ export class EventService {
                                 name: "Super Main Event Satellite",
                                 dayTrack: 1,
                                 type: "MainEvent",
+                                satellite: {
+                                    identifier: "23",
+                                    name: "Main Event Day 1",
+                                    buyin: { total: 600, prize: 550 },
+                                },
                                 notes: [
                                     "Starting Chips: 5,000",
                                     "Registration and re-entries through first eight (8) levels",
@@ -924,7 +955,7 @@ export class EventService {
                         events: [
                             {
                                 key: 33,
-                                name: "SNG Main Event 1A Satellite",
+                                name: "SNG Main Event Satellite",
                                 satellite: {
                                     identifier: "23",
                                     name: "Main Event 1A",
@@ -942,7 +973,8 @@ export class EventService {
                             {
                                 key: 34,
                                 identifier: "23",
-                                name: "Main Event 1A",
+                                name: "Main Event",
+                                subtitle: "1A",
                                 type: "MainEvent",
                                 notes: [
                                     "Starting Chips: 25,000",
@@ -978,6 +1010,11 @@ export class EventService {
                                 time: { hours: 14, minutes: 0 },
                                 duration: { hours: 4, minutes: 20 },
                                 buyin: { total: 120, prize: 100 },
+                                satellite: {
+                                    identifier: "23",
+                                    name: "Main Event Day 1",
+                                    buyin: { total: 600, prize: 550 },
+                                },
                                 notes: [
                                     "Starting Chips: 6,000",
                                     "Registration and re-entries through first six (6) levels",
@@ -1034,13 +1071,15 @@ export class EventService {
                                 time: { hours: 19, minutes: 0 },
                                 duration: { hours: 6, minutes: 0 },
                                 buyin: { total: 125, prize: 100 },
+                                satellite: {
+                                    identifier: "23",
+                                    name: "Main Event Day 1",
+                                    buyin: { total: 600, prize: 550 },
+                                },
                                 prizes: [
                                     "1 Winner per $600 prize pool",
                                     "Winners receive Main Event entry"
                                 ],
-                                gtd: {
-                                    prize: 200
-                                },
                                 gameType: "No Limit Hold'em",
                                 registrationLevelClose: 7,
                                 format: {
@@ -1068,7 +1107,7 @@ export class EventService {
                         events: [
                             {
                                 key: 40,
-                                name: "SNG Main Event 1B Satellite",
+                                name: "SNG Main Event Satellite",
                                 satellite: {
                                     identifier: "23",
                                     name: "Main Event 1B",
@@ -1086,7 +1125,8 @@ export class EventService {
                             {
                                 key: 41,
                                 identifier: "23",
-                                name: "Main Event 1B",
+                                name: "Main Event",
+                                subtitle: "1B",
                                 type: "MainEvent",
                                 notes: [
                                     "Play continues until level 14 or 20% + 1 of the field",
@@ -1118,6 +1158,11 @@ export class EventService {
                                 time: { hours: 14, minutes: 0 },
                                 duration: { hours: 4, minutes: 20 },
                                 buyin: { total: 120, prize: 100 },
+                                satellite: {
+                                    identifier: "23",
+                                    name: "Main Event Day 1",
+                                    buyin: { total: 600, prize: 550 },
+                                },
                                 notes: [
                                     "Starting Chips: 6,000",
                                     "Registration and re-entries through first six (6) levels",
@@ -1165,6 +1210,11 @@ export class EventService {
                                 time: { hours: 19, minutes: 0 },
                                 duration: { hours: 6, minutes: 0 },
                                 buyin: { total: 125, prize: 100 },
+                                satellite: {
+                                    identifier: "30",
+                                    name: "6 MAX PLO Championship",
+                                    buyin: { total: 550, prize: 500 },
+                                },
                                 notes: [
                                     "Starting Chips: 8,000",
                                     "Registration and re-entries through first six (6) levels",
@@ -1207,7 +1257,8 @@ export class EventService {
                             {
                                 key: 45,
                                 identifier: "23",
-                                name: "Main Event Day 2",
+                                name: "Main Event",
+                                subtitle: "Day 2",
                                 isLiveCoverage: true,
                                 type: "MainEvent",
                                 notes: [

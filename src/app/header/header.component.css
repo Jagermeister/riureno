@@ -1,6 +1,7 @@
 #header {
     background: black;
-    height: 65px;
+    transform: all 0.4s ease-in;
+    height: 50px;
     font-size: 18px;
     width: 100%;
 }
@@ -8,6 +9,7 @@
 #logo {
     position: absolute;
     height: 1em;
+    padding: 0.5em;
 }
 
 nav {
@@ -51,7 +53,12 @@ span {
         display: inherit;
         opacity: 1;
     }
-    
+    #logo {
+        padding: 1em 0.75em;
+    }
+    #header {
+        height: 65px;
+    }
 }
 @media screen and (min-width: 60em){
     a { padding: 1em 1.5em; }

@@ -29,6 +29,7 @@ import { Component, OnInit, Input } from '@angular/core';
             flex-shrink: 0;
             width: 100%;
             position: relative;
+            overflow-x: 
         }`,
         '#time { /*flex: none;*/ height: auto; border-right: 1px white solid; }',
         `#events {
@@ -47,7 +48,7 @@ import { Component, OnInit, Input } from '@angular/core';
             padding-inline-start: 0px;
             -webkit-padding-start: 0px;
             display: inline-block;
-            margin: 8px 0;
+            margin: 4px 0;
             text-align: center;
             font-size: 1em;
             transition: .2s font-size ease-in;
@@ -62,6 +63,7 @@ import { Component, OnInit, Input } from '@angular/core';
         hr {
             border: 0;
             height: 1px;
+            margin-block-start: 0;
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
         }
         `

@@ -30,13 +30,13 @@ import { EventDetailComponent } from './eventdetail.component';
                 {{buyinFormat}}
             </span>
             <span style="float: left;" *ngIf="event.buyin && event.buyin.bounty">
-                <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Bounty" style="transform: rotate(45deg);">fullscreen_exit</mat-icon>$\{{event.buyin.bounty}}
+                <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Bounty" style="transform: rotate(45deg); height: 20px;">fullscreen_exit</mat-icon>$\{{event.buyin.bounty}}
             </span>
             <span id="gtd" *ngIf="event.gtd">
                 [\${{event.gtd.prize}}k GTD]
             </span>
             <span *ngIf="event.registrationLevelClose && event.format.levelMinutes" style="float: right;">
-                <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Registration End Time">timelapse</mat-icon>{{lateRegFormat}}
+                <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Registration End Time" style="height: 20px;">timelapse</mat-icon>{{lateRegFormat}}
             </span>
         </div>
         <span *ngIf="event.buyin && event.buyin.isCash">
@@ -45,8 +45,12 @@ import { EventDetailComponent } from './eventdetail.component';
         <span *ngIf="event.isLiveCoverage" style="padding-right: 6px;">
             <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Live Stream" svgIcon="twitch"></mat-icon>
         </span>
-        <span *ngIf="event.identifier">#{{event.identifier}}&nbsp;</span>
+        <span *ngIf="event.satellite" style="padding-right: 6px;">
+            <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Satellite" svgIcon="satellite"></mat-icon>
+        </span>
         {{event.name}}
+        <span *ngIf="event.subtitle">({{event.subtitle}})</span>
+        <span *ngIf="event.identifier" style="float: right;">(#{{event.identifier}})&nbsp;</span>
         <span style="float: right;" *ngIf="event.buyin && event.buyin.isInvitational">
             <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Qualify/Invite Only">lock</mat-icon>
         </span>
@@ -116,7 +120,7 @@ export class EventComponent implements OnInit {
             const eventBuyin = this.event.buyin;
             buyin = `$${eventBuyin.prize}+$${eventBuyin.total - eventBuyin.prize}`;
             if (eventBuyin.rebuy) {
-                buyin = `${buyin}[+$${eventBuyin.rebuy}R]`;
+                buyin = `${buyin} [+$${eventBuyin.rebuy} Rebuy]`;
             }
         }
 
