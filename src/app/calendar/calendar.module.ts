@@ -11,6 +11,8 @@ import { FilterComponent } from './filtering/filter.component';
 import { EventDetailComponent } from './eventdetail.component';
 
 import { EventService } from './event.service';
+import { CartComponent } from './cart.component';
+import { CartService } from './cart.service';
 
 const calendarRoutes: Routes = [
     { path: '', component: CalendarComponent }
@@ -19,6 +21,7 @@ const calendarRoutes: Routes = [
 @NgModule({
   declarations: [
       CalendarComponent,
+      CartComponent,
       DayComponent,
       EventComponent,
       EventDetailComponent,
@@ -31,6 +34,7 @@ const calendarRoutes: Routes = [
     RouterModule.forChild(calendarRoutes)
   ],
   providers: [
+      CartService,
       EventService
   ],
   entryComponents: [ EventDetailComponent ]

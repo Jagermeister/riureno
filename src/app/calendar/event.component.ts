@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Time } from '@angular/common';
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { EventDetailComponent } from './eventdetail.component';
+import { CartService } from './cart.service';
 
 //[style.width.px]="250 - offset*10"
 //[style.marginLeft.px]="30 + offset*10"
@@ -22,8 +23,11 @@ import { EventDetailComponent } from './eventdetail.component';
         [style.top.px]="durationOffset"
         [style.marginLeft.px]="offset*10"
         [style.height]="widthEst+'%'"
-        [style.opacity]="event.isFiltered ? 0.2 : 1"
+        [style.opacity]="1"
         [ngClass]="event.type ? event.type : 'card'">
+        <span *ngIf="isInCart" style="float: left; color: #00f742; transform: rotate(90deg);">
+            <mat-icon>videogame_asset</mat-icon>
+        </span>
         <div style="text-align: center; height: 1.4em;"
             *ngIf="event.buyin && !event.buyin.isCash && !event.buyin.isInvitational">
             <span style="float: left;">
@@ -48,7 +52,7 @@ import { EventDetailComponent } from './eventdetail.component';
         <span *ngIf="event.satellite" style="padding-right: 6px;">
             <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Satellite" svgIcon="satellite"></mat-icon>
         </span>
-        {{event.name}}
+        <span [style.text-decoration]="isInCart ? 'underline' : ''">{{event.name}}</span>
         <span *ngIf="event.subtitle">({{event.subtitle}})</span>
         <span *ngIf="event.identifier" style="float: right;">(#{{event.identifier}})&nbsp;</span>
         <span style="float: right;" *ngIf="event.buyin && event.buyin.isInvitational">
@@ -95,11 +99,26 @@ export class EventComponent implements OnInit {
     @Input() event: CalendarEvent;
     durationOffset: number;
     widthEst: number;
+    isInCart: boolean;
 
-    constructor(private dialog: MatDialog) {
+    constructor(private dialog: MatDialog, private cartService: CartService) {
     }
 
     ngOnInit() {
+        this.cartService.addedEventKey.subscribe({
+            next: key => {
+                if (key > 0 && key == this.event.key) {
+                    this.isInCart = true;
+                }
+            }
+        });
+        this.cartService.removedEventKey.subscribe({
+            next: key => {
+                if (key > 0 && key == this.event.key) {
+                    this.isInCart = false;
+                }
+            }
+        });
         this.durationOffset = (this.event.time.hours - 10) * 45;
         if (this.event.duration) {
             const duration = this.event.duration;
@@ -107,7 +126,7 @@ export class EventComponent implements OnInit {
         }
     }
 
-    showDetail() {        
+    showDetail() {
         const dialogRef = this.dialog.open(EventDetailComponent, {
             /*width: '250px',*/
             data: { event: this.event }
