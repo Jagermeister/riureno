@@ -20,10 +20,31 @@
             padding: 0;
         }
     </style>
+    <script>
+    function copyToClipboard(textToBeCopied) {
+        let textarea = null;
+        textarea = this.document.createElement("textarea");
+        textarea.style.height = "0px";
+        textarea.style.left = "-100px";
+        textarea.style.opacity = "0";
+        textarea.style.position = "fixed";
+        textarea.style.top = "-100px";
+        textarea.style.width = "0px";
+        document.body.appendChild(textarea);
+        // Set and select the value (creating an active Selection range).
+        textarea.value = textToBeCopied;
+        textarea.select();
+        // Ask the browser to copy the current selection to the clipboard.
+        let successful = document.execCommand("copy");
+        if (textarea && textarea.parentNode) {
+            textarea.parentNode.removeChild(textarea);
+        }
+    }
+    </script>
 <link rel="stylesheet" href="styles.04ec06066985aa1a3501.css"></head>
 <body style="font-family: 'Roboto', sans-serif;">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JXQNCD"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <app-root></app-root>
-<script type="text/javascript" src="runtime.e706df7c86c2c1f50553.js"></script><script type="text/javascript" src="polyfills.711e3454d84842421680.js"></script><script type="text/javascript" src="main.c9762a05234f7a73b3db.js"></script></body>
+<script type="text/javascript" src="runtime.25e71bc6e3104529bcf0.js"></script><script type="text/javascript" src="polyfills.711e3454d84842421680.js"></script><script type="text/javascript" src="main.3dc411153cd1a5f9f1a2.js"></script></body>
 </html>
