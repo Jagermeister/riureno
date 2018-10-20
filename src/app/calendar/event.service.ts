@@ -223,7 +223,6 @@ export class EventService {
                             },
                             {
                                 key: 8,
-                                dayTrack: 3,
                                 identifier: "6",
                                 name: "Thursday Thrilla Satellite",
                                 time: { hours: 19, minutes: 0 },
@@ -254,6 +253,7 @@ export class EventService {
                             },
                             {
                                 key: 9,
+                                dayTrack: 2,
                                 name: "Hangout",
                                 type: "social",
                                 notes: [
@@ -397,6 +397,7 @@ export class EventService {
                             {
                                 key: 14,
                                 name: "Taiwanese Hangout",
+                                dayTrack: 2,
                                 notes: [
                                     "rake free",
                                     "point value should be low to encourage learning"
@@ -676,6 +677,7 @@ export class EventService {
                             {
                                 key: 22,
                                 name: "Hangout",
+                                dayTrack: 2,
                                 type: "social",
                                 notes: [
                                     "Cash games to be determined"
@@ -1091,6 +1093,7 @@ export class EventService {
                             {
                                 key: 39,
                                 name: "Hangout",
+                                dayTrack: 2,
                                 type: "social",
                                 notes: [
                                     "Cash games to be determined"
@@ -1342,6 +1345,7 @@ export class EventService {
                             {
                                 key: 48,
                                 name: "Hangout",
+                                dayTrack: 2,
                                 type: "social",
                                 notes: [
                                     "Cash games to be determined"
