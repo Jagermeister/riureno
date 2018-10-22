@@ -119,7 +119,7 @@ export class EventComponent implements OnInit {
                 }
             }
         });
-        this.durationOffset = (this.event.time.hours - 10) * 45;
+        this.durationOffset = (this.event.time.hours - 10 + this.event.time.minutes / 60) * 45;
         if (this.event.duration) {
             const duration = this.event.duration;
             this.widthEst = ((duration.hours + duration.minutes/60) / 14) * 100;

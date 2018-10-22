@@ -56,7 +56,6 @@ export class CalendarComponent implements OnInit {
                 50 :
                 100
             );
-        //const slidePercentage: number = +(maxWidth.substring(0, maxWidth.length - 1));
         return slidePercentage;
     }
 
