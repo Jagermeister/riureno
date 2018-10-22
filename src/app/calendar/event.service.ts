@@ -825,6 +825,7 @@ export class EventService {
                             {
                                 key: 27,
                                 name: "Live Survivor Viewing Party",
+                                dayTrack: 15,
                                 type: "social",
                                 notes: [
                                     "Rob Cesternino is a former two-time Survivor contestant",
