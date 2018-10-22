@@ -3,7 +3,7 @@
     position: relative;
     height: 100%;
 ">
-<div style="
+<div #dayFrame style="
     position: absolute;
     top: 0;
     right: 0;
@@ -12,7 +12,13 @@
     overflow-x: hidden;
 ">
 <app-cart></app-cart>
-<div id="daycontainer" [style.right]="dayOffset * 100 + '%'" style="
+<div *ngIf="dayOffset" style="z-index: 100; position: absolute; left: 5%; cursor: pointer; padding: 12px;">
+    <mat-icon (click)="onPrev()">arrow_back_ios</mat-icon></div>
+<div *ngIf="leftDay < days.length-1" style="z-index: 100; position: absolute; right: 5%; cursor: pointer; padding: 12px;">
+    <mat-icon (click)="onNext()">arrow_forward_ios</mat-icon></div>
+<div id="daycontainer"
+    (window:resize)="onResize($event)"
+    [style.right]="dayOffset + '%'" style="
     /*transform: translate(-300px, 0px);*/
     /*grid-template-rows: auto;
     -webkit-flex-direction: row;

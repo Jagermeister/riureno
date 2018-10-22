@@ -4,14 +4,12 @@ import { Component, OnInit, Input } from '@angular/core';
     selector: 'app-day',
     template: `
     <ul>
-        <li style="width: 20%;"><mat-icon *ngIf="!day.isFirst" (click)="prev()">arrow_back_ios</mat-icon></li>
         <li style="padding: 0 3em;">
             <div style="width: 100%; text-align: center;">
                 {{day.name | uppercase}}
             </div>
             <div>{{day.date | date}}</div>
         </li>
-        <li style="width: 20%;"><mat-icon *ngIf="!day.isLast" (click)="next()">arrow_forward_ios</mat-icon></li>
     </ul>
     <hr/>
     <div id="day">

@@ -6,7 +6,7 @@ import {MatDialogRef} from '@angular/material';
     template: `
     <h2>Disclosures</h2>
     <hr/>
-    <p><b>Run It Up</b> logos and brand are owned by runitup.com. We make no claims to ownership.</p>
+    <p><b>Run It Up</b> logos and brand are owned by Run It Up Studios, LLC. We make no claims to ownership.</p>
     <p>This site uses Google Analytics to measure usage and ensure the best experience for users.</p>
     <p>To improve your experience with the site we may place a file on your computer (a cookie).</p>
     <p>Learn how Google uses data when you use our partners' sites or apps, located at www.google.com/policies/privacy/partners/</p>
