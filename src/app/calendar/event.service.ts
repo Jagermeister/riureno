@@ -424,7 +424,7 @@ export class EventService {
                                 },
                                 time: { hours: 10, minutes: 0 },
                                 duration: { hours: 1, minutes: 30 },
-                                buyin: { total: 80, prize: 10 },
+                                buyin: { total: 90, prize: 80 },
                                 prizes: [
                                     "Winners receive 6 Max Shootout entry",
                                     "Event #10",
@@ -702,7 +702,7 @@ export class EventService {
                                 },
                                 time: { hours: 10, minutes: 0 },
                                 duration: { hours: 1, minutes: 30 },
-                                buyin: { total: 80, prize: 10 },
+                                buyin: { total: 90, prize: 80 },
                                 prizes: [
                                     "Winners receive 6 MAX 8-Game entry",
                                     "Event #16",

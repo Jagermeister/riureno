@@ -26,7 +26,7 @@ export class CalendarComponent implements OnInit {
                     &&  d.date.getUTCDate() == today.getUTCDate()
                 );
                 if (filteredDays.length == 1) {
-                    this.leftDay = days.indexOf(filteredDays[0]) - 1;
+                    this.leftDay = days.indexOf(filteredDays[0]);
                 }
                 this.dayOffset = this.leftDay * this.computedMaxWidth();
             });
