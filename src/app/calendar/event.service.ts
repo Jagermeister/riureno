@@ -1047,7 +1047,7 @@ export class EventService {
                                 identifier: "25",
                                 name: "6 MAX N.O.R.S.E.",
                                 notes: [
-                                    "No Limit Omaha + O.R.S.E.",
+                                    "No Limit Hold'em + O.R.S.E.",
                                     "Starting Chips: 10,000",
                                     "Registration and re-entries through first eight (8) levels",
                                     "10 min break at the completion of every six (6) levels",

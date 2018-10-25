@@ -53,7 +53,7 @@ import { CartService } from './cart.service';
             <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Satellite" svgIcon="satellite"></mat-icon>
         </span>
         <span [style.text-decoration]="isInCart ? 'underline' : ''">{{event.name}}</span>
-        <span *ngIf="event.subtitle">({{event.subtitle}})</span>
+        <span *ngIf="event.subtitle">&nbsp;({{event.subtitle}})</span>
         <span *ngIf="event.identifier" style="float: right;">(#{{event.identifier}})&nbsp;</span>
         <span style="float: right;" *ngIf="event.buyin && event.buyin.isInvitational">
             <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Qualify/Invite Only">lock</mat-icon>
