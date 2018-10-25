@@ -835,6 +835,16 @@ export class EventService {
                                 time: { hours: 20, minutes: 0 },
                                 duration: { hours: 4, minutes: 0 },
                             },
+                            {
+                                key: 32,
+                                name: "KARAOKE PARTY @ EDGE",
+                                type: "social",
+                                prizes: [
+                                    "Best solo and/or duet performance will win entry to Event #32 - Platinum Pass Invite."
+                                ],
+                                time: { hours: 22, minutes: 30 },
+                                duration: { hours: 1, minutes: 30 },
+                            },
                         ]
                     },
                     {
@@ -910,10 +920,21 @@ export class EventService {
                                 }
                             },
                             {
+                                key: 59,
+                                name: "Stand-Up Open Mic",
+                                notes: [
+                                    "Hosted by Joe Stapleton and Tyson Apostol",
+                                    "Located in Sorrento Ballroom 1"
+                                ],
+                                type: "social",
+                                time: { hours: 18, minutes: 30 },
+                                duration: { hours: 1, minutes: 30 },
+                            },
+                            {
                                 key: 31,
                                 identifier: "22",
                                 name: "Super Main Event Satellite",
-                                dayTrack: 1,
+                                dayTrack: 3,
                                 type: "MainEvent",
                                 satellite: {
                                     identifier: "23",
@@ -939,16 +960,6 @@ export class EventService {
                                     levelPerBreak: 8,
                                     breakMinutes: 10,
                                 }
-                            },
-                            {
-                                key: 32,
-                                name: "KARAOKE PARTY @ EDGE",
-                                type: "social",
-                                prizes: [
-                                    "Best solo and/or duet performance will win entry to Event #32 - Platinum Pass Invite."
-                                ],
-                                time: { hours: 22, minutes: 0 },
-                                duration: { hours: 2, minutes: 0 },
                             },
                         ]
                     },

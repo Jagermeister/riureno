@@ -28,7 +28,7 @@ import { CartService } from './cart.service';
     <ul *ngIf="event.notes">
         <li *ngFor="let note of event.notes">{{note}}</li>
     </ul>
-    <hr/>
+    <hr *ngIf="event.notes && event.prizes" />
     <ul *ngIf="event.prizes">
         <li *ngFor="let prize of event.prizes">{{prize}}</li>
     </ul>
