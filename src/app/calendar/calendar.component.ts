@@ -20,6 +20,7 @@ export class CalendarComponent implements OnInit {
             .subscribe(days => {
                 this.days = days;
                 const today = new Date();
+                today.setHours(0);
                 const filteredDays = days.filter(d =>
                         d.date.getUTCFullYear() == today.getUTCFullYear()
                     &&  d.date.getUTCMonth() == today.getUTCMonth()
