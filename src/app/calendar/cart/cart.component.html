@@ -1,0 +1,11 @@
+<div
+  *ngIf="entryCount"
+  onclick="copyToClipboard(window.location.href)"
+  style="padding: 4px; text-align: center; width: 100%; text-decoration: underline;"
+>
+  <!-- span style="float:left">Schedule:</span -->
+  <span id="cartInfo"
+    ><b>{{ entryCount }}</b> Entries in <b>{{ eventCount }}</b> Events for <b>\${{ buyInTotal | number: '1.0-0' }}</b></span
+  >
+  <mat-icon>file_copy</mat-icon>
+</div>

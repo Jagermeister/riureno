@@ -1,0 +1,37 @@
+#event {
+  position: absolute;
+  cursor: pointer;
+}
+
+.mat-tooltip-default {
+  font-size: 18px;
+}
+mat-icon {
+  vertical-align: middle;
+}
+div.card {
+  background: #6200ee;
+  border-radius: 4px;
+}
+
+div.social {
+  background: green;
+  border-radius: 4px;
+}
+
+div.charity {
+  background: gold;
+  border-radius: 4px;
+  color: black;
+}
+
+div.MainEvent {
+  background: #3f51b5;
+  border-radius: 4px;
+}
+
+#gtd {
+  font-size: 1.1em;
+  color: #00f742;
+  padding: 0 10px;
+}
