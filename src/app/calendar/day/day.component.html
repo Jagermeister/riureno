@@ -1,0 +1,13 @@
+<ul>
+  <li style="padding: 0 3em;">
+    <div style="width: 100%; text-align: center;">{{ day.name | uppercase }}</div>
+    <div>{{ day.date | date }}</div>
+  </li>
+</ul>
+<hr />
+<div id="day">
+  <div id="time" style="width: 25px; font-size: 14px;">
+    <div *ngFor="let hour of hours" style="height: 45px;">{{ ('0' + hour.toString()).substr(-2, 2) }}</div>
+  </div>
+  <div id="events"><app-event *ngFor="let event of day.events" [event]="event"></app-event></div>
+</div>

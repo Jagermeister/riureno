@@ -1,0 +1,45 @@
+<div
+  id="event"
+  (click)="showDetail()"
+  [ngStyle]="{
+    width: 'calc(100% - ' + ((event.dayTrack ? event.dayTrack : 0) * 10 + 5) + 'px)'
+  }"
+  [style.top.px]="durationOffset"
+  [style.marginLeft.px]="offset * 10"
+  [style.height]="widthEst + '%'"
+  [style.opacity]="1"
+  [ngClass]="event.type ? event.type : 'card'"
+>
+  <span *ngIf="isInCart" style="float: left; color: #00f742; transform: rotate(90deg);"> <mat-icon>videogame_asset</mat-icon> </span>
+  <div style="text-align: center; height: 1.4em;" *ngIf="event.buyin && !event.buyin.isCash && !event.buyin.isInvitational">
+    <span style="float: left;"> {{ buyinFormat }} </span>
+    <span style="float: left;" *ngIf="event.buyin && event.buyin.bounty">
+      <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Bounty" style="transform: rotate(45deg); height: 20px;"
+        >fullscreen_exit</mat-icon
+      >$\{{ event.buyin.bounty }}
+    </span>
+    <span id="gtd" *ngIf="event.gtd"> [\${{ event.gtd.prize }}k GTD] </span>
+    <span *ngIf="event.registrationLevelClose && event.format.levelMinutes" style="float: right;">
+      <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Registration End Time" style="height: 20px;">timelapse</mat-icon
+      >{{ lateRegFormat }}
+    </span>
+  </div>
+  <span *ngIf="event.buyin && event.buyin.isCash">
+    <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Cash Game">attach_money</mat-icon>
+  </span>
+  <span *ngIf="event.isLiveCoverage" style="padding-right: 6px;">
+    <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Live Stream" svgIcon="twitch"></mat-icon>
+  </span>
+  <span *ngIf="event.satellite" style="padding-right: 6px;">
+    <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Satellite" svgIcon="satellite"></mat-icon>
+  </span>
+  <span [style.text-decoration]="isInCart ? 'underline' : ''">{{ event.name }}</span>
+  <span *ngIf="event.subtitle">&nbsp;({{ event.subtitle }})</span>
+  <span *ngIf="event.identifier" style="float: right;">(#{{ event.identifier }})&nbsp;</span>
+  <span style="float: right;" *ngIf="event.buyin && event.buyin.isInvitational">
+    <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Qualify/Invite Only">lock</mat-icon>
+  </span>
+  <span *ngIf="event.gameType == 'Mixed Game'">
+    <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Mixed Game">casino</mat-icon>
+  </span>
+</div>

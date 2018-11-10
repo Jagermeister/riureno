@@ -1,0 +1,25 @@
+div {
+  background: cornflowerblue;
+  color: black;
+}
+
+#cartInfo {
+  cursor: pointer;
+}
+
+mat-icon {
+  height: 20px;
+  cursor: pointer;
+  vertical-align: top;
+}
+
+@media screen and (min-width: 640px) {
+  #cartInfo {
+    font-size: 1.25em;
+  }
+}
+@media screen and (min-width: 960px) {
+  #cartInfo {
+    font-size: 1.75em;
+  }
+}
