@@ -16,9 +16,9 @@
     <span style="float: left;" *ngIf="event.buyin && event.buyin.bounty">
       <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Bounty" style="transform: rotate(45deg); height: 20px;"
         >fullscreen_exit</mat-icon
-      >$\{{ event.buyin.bounty }}
+      >${{ event.buyin.bounty }}
     </span>
-    <span id="gtd" *ngIf="event.gtd"> [\${{ event.gtd.prize }}k GTD] </span>
+    <span id="gtd" *ngIf="event.gtd"> [${{ event.gtd.prize }}k GTD] </span>
     <span *ngIf="event.registrationLevelClose && event.format.levelMinutes" style="float: right;">
       <mat-icon matTooltipClass="mat-tooltip-default" matTooltip="Registration End Time" style="height: 20px;">timelapse</mat-icon
       >{{ lateRegFormat }}
