@@ -8,7 +8,7 @@ import { MatDialogRef } from '@angular/material';
     <hr />
     <ul>
       <li>
-        <a target="_blank" href="./assets/RIU-Reno-October-2018-Structures-1.pdf"><mat-icon>picture_as_pdf</mat-icon> Structures</a>
+        <a target="_blank" href="./assets/RIU-Reno-October-2018-Structures.pdf"><mat-icon>picture_as_pdf</mat-icon> Structures</a>
       </li>
       <li>
         <a target="_blank" href="https://www.twitch.tv/videos/93385861"><mat-icon svgIcon="twitch"></mat-icon> HORSE Final Table Review</a>
