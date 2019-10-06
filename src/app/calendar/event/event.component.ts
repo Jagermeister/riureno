@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Time } from '@angular/common';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { EventDetailComponent } from './details/event-detail.component';
 import { CartService } from '../cart/cart.service';
 
