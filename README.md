@@ -1,6 +1,6 @@
 # Riureno
 
-Event Schedule and Planner
+2018 Event Schedule and Planner
 
 Feature
 - Responsive design for desktop and mobile
